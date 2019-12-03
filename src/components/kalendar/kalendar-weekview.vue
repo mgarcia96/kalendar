@@ -43,8 +43,8 @@
         </ul>
         <div v-show="kalendar_options.style !== 'material_design'"
              class="hour-indicator-line"
-             :style="`top:${passedtime.distance}px`">
-          <span class="time-value">{{passedtime.value}}</span>
+             :style="`top:${passedtime && passedtime.distance}px`">
+          <span class="time-value">{{passedtime && passedtime.value}}</span>
           <span class="line"></span>
         </div>
         <kalendar-days :day="day"
@@ -52,7 +52,7 @@
                        :class="`day-${index+1}`"
                        :key="day.value.slice(0,10)"
                        v-for="(day, index) in days"
-                       :passed-time="passedtime.distance"
+                       :passed-time="passedtime && passedtime.distance"
                        :ref="day.value.slice(0,10)">
         </kalendar-days>
       </div>
