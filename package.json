@@ -1,6 +1,6 @@
 {
-    "name": "kalendar-vue",
-    "version": "2.1.1",
+    "name": "kodio-booking-calendar",
+    "version": "2.2.5",
     "description": "",
     "private": false,
     "main": "dist/index.js",

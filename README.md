@@ -1,6 +1,6 @@
 ## 🗓 Kalendar
 
-[![npm version](https://badge.fury.io/js/kalendar-vue.svg)](https://badge.fury.io/js/kalendar-vue)
+[![npm version](https://badge.fury.io/js/kodio-booking-calendar.svg)](https://badge.fury.io/js/kodio-booking-calendar)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -27,7 +27,7 @@ You can run the demo locally :
 -   Install plugin and its dependencies from npm
 
 ```
-npm install kalendar-vue portal-vue -S
+npm install kodio-booking-calendar portal-vue -S
 ```
 
 -   The easiest option is to copy the demo app from `src/serve-dev.vue` into your project and start from that.
@@ -41,7 +41,7 @@ import Vue from "vue";
 import PortalVue from "portal-vue";
 Vue.use(PortalVue);
 
-import { Kalendar } from 'kalendar-vue';
+import { Kalendar } from 'kodio-booking-calendar';
 ...
 components: {
 	Kalendar,
@@ -98,6 +98,7 @@ data: () => ({
 | ------------------- | -------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------ |
 | view_type           | 'week'                                                         | string        | Determines the mode of kalendar. You can pick either 'week' or 'day'. Day is recommended for mobile devices. |
 | cell_height         | 10                                                             | string        | Determines the height in pixels of a cell                                                                    |
+| hourlySelection         | false                                                             | boolean        | Select an entire hour when you click a cell                                                                    |
 | start_day           | new Date().toISOString()                                       | string        | Determines the week or day which is shown in the kalendar on first load                                                    |
 | style               | 'material_design'                                              | string        | You can pick either 'material_design' or 'flat_design' (iOS)                                                 |
 | read_only           | false                                                          | boolean       | Enabled, viewers won't be able to interact with kalendar                                                     |

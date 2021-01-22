@@ -54,7 +54,7 @@
           class="hour-indicator-line"
           :style="`top:${passedTime.distance}px`"
         >
-          <span class="time-value">{{ passedTime.value }}</span>
+          <span class="time-value">{passedTime.value }}</span>
           <span class="line"></span>
         </div>
         <kalendar-days
@@ -123,9 +123,13 @@ export default {
       let day_ends = `${time.split("T")[0]}T${(day_ends_at + "").padStart(2, '0')}:00:00.000Z`;
       let time_obj = new Date(time);
 
-      if(new Date(day_ends) < time_obj || time_obj < new Date(day_starts)) return null;
+      if(new Date(day_ends) < time_obj || time_obj < new Date(day_starts)) {
+        let distance = -20;
+        return {distance, time};
+      }
+      
+      let distance = ((time_obj - new Date(day_starts)) / 1000 / 60) * (this.kalendar_options.hourlySelection ? 1 : 6);
 
-      let distance = (time_obj - new Date(day_starts)) / 1000 / 60;
       return {distance, time};
     }
   },
