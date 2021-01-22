@@ -1,45 +1,56 @@
 <template>
-	<div class="how-to" id="getting-started">
-		<section>
-			<h1>Getting started</h1>
-			<div>
-				<h4>Install plugin from npm</h4>
-				<pre v-highlightjs><code class="javascript">npm install kalendar-vue -S</code></pre>
-			</div>
-			<div>
-				<h4>Import plugin in your component</h4>
-				<pre v-highlightjs="initialize_js"><code class="javascript"></code></pre>
-			</div>
-			<div>
-				<h4>Provide appointments array.</h4>
-				<p>This array will be the source of the appointments which are rendered in the calendar.</p>
-				<pre v-highlightjs="render_it"><code class="html"></code></pre>
-				<pre v-highlightjs="render_it_js"><code class="javascript"></code></pre>
-			</div>
-		</section>
-		<section>
-			<h4>Using Slots</h4>
-			<p>The plugin can turn incredibly useful using scoped slots. You can customize all the essential parts of it.</p>
-			<pre v-highlightjs="using_slots"><code class="html"></code></pre>
-			<pre v-highlightjs="using_slots_js"><code class="javascript"></code></pre>
-		</section>
-	</div>
+    <div class="how-to" id="getting-started">
+        <section>
+            <h1>Getting started</h1>
+            <div>
+                <h4>Install plugin from npm</h4>
+                <pre
+                    v-highlightjs
+                ><code class="javascript">npm install kalendar-vue -S</code></pre>
+            </div>
+            <div>
+                <h4>Import plugin in your component</h4>
+                <pre
+                    v-highlightjs="initialize_js"
+                ><code class="javascript"></code></pre>
+            </div>
+            <div>
+                <h4>Provide appointments array.</h4>
+                <p>
+                    This array will be the source of the appointments which are
+                    rendered in the calendar.
+                </p>
+                <pre v-highlightjs="render_it"><code class="html"></code></pre>
+                <pre
+                    v-highlightjs="render_it_js"
+                ><code class="javascript"></code></pre>
+            </div>
+        </section>
+        <section>
+            <h4>Using Slots</h4>
+            <p>
+                The plugin can turn incredibly useful using scoped slots. You
+                can customize all the essential parts of it.
+            </p>
+            <pre v-highlightjs="using_slots"><code class="html"></code></pre>
+            <pre
+                v-highlightjs="using_slots_js"
+            ><code class="javascript"></code></pre>
+        </section>
+    </div>
 </template>
 <script>
 const options = `
 calendar_settings: {
-	style: 'material_design', // ['flat_design', 'material_design']
-	view_type: 'Month', // ['Month', 'Day']
-	split_value: 20, // Value % 60 === 0
-	cell_height: 20, // !isNaN(Value)
-	scrollToNow: true, // Boolean
-	current_day: new Date(), // Valid date
+  style: 'material_design', // ['flat_design', 'material_design']
+  cell_height: 20, // !isNaN(Value)
+  scrollToNow: true, // Boolean
+  current_day: new Date(), // Valid date
 }
 `;
 
 const init_js = `
 import { Kalendar } from 'kalendar-vue';
-import 'kalendar-vue/dist/kalendar-vue.css';
 ...
 components: {
   Kalendar,
@@ -52,7 +63,6 @@ data: () => ({
   events: [],
   calendar_settings: {
     style: 'material_design',
-    view_type: 'week',
     cell_height: 20,
     scrollToNow: true,
     current_day: new Date(),
@@ -159,83 +169,70 @@ removeEvent(kalendarEvent) {
     id: kalendarEvent.kalendar_id,
   })
 },
-`
+`;
 export default {
-	data: () => ({
-		render_it: `<kalendar :configuration="calendar_settings" :events="events"/>`,
-		render_it_js: provide_data,
-		using_slots: slots,
-		using_slots_js: slots_js,
-		initialize_js: init_js,
-	}),
-}
-
+    data: () => ({
+        render_it: `<kalendar :configuration="calendar_settings" :events="events"/>`,
+        render_it_js: provide_data,
+        using_slots: slots,
+        using_slots_js: slots_js,
+        initialize_js: init_js,
+    }),
+};
 </script>
 <style lang="scss">
-$blue: #007FFF;
-$yellow: #F5D547;
-$dark: #3C3C3B;
+$blue: #007fff;
+$yellow: #f5d547;
+$dark: #3c3c3b;
 
 .how-to {
-	display: flex;
-	flex-direction: column;
-	padding: 20px;
-	margin-top: 30px;
-	code {
-		width: 100%;
-		overflow: scroll;
-	}
-	section {
-		max-width: 1100px;
-		width: 100%;
-		margin: 0 auto;
-		>div {
-			margin-top: 55px;
-		}
-	}
-	color: $dark;
-	h1 {
-		color: darken($dark, 5);
-	}
-	h4 {
-		&:before {
-			content: '• ',
-		}
-	}
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 30px;
+    code {
+        width: 100%;
+        overflow: scroll;
+    }
+    section {
+        max-width: 1100px;
+        width: 100%;
+        margin: 0 auto;
+        > div {
+            margin-top: 55px;
+        }
+    }
+    color: $dark;
+    h1 {
+        color: darken($dark, 5);
+    }
+    h4 {
+        &:before {
+            content: '• ';
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
 
 /* Tomorrow Night Theme */
 
-
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
 
-
 /* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
 
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
 
 code {
-	display: flex;
-	flex-wrap: wrap;
-	>* {
-		white-space: normal;
-	}
+    display: flex;
+    flex-wrap: wrap;
+    > * {
+        white-space: normal;
+    }
 }
 
 .tomorrow-comment,
 pre .hljs-comment,
 pre .hljs-title {
-	color: #969896;
+    color: #969896;
 }
 
 .tomorrow-red,
@@ -251,7 +248,7 @@ pre .hljs-html .hljs-doctype,
 pre .hljs-css .hljs-id,
 pre .hljs-css .hljs-class,
 pre .hljs-css .hljs-pseudo {
-	color: #cc6666;
+    color: #cc6666;
 }
 
 .tomorrow-orange,
@@ -261,14 +258,14 @@ pre .hljs-built_in,
 pre .hljs-literal,
 pre .hljs-params,
 pre .hljs-constant {
-	color: #de935f;
+    color: #de935f;
 }
 
 .tomorrow-yellow,
 pre .hljs-class,
 pre .hljs-ruby .hljs-class .hljs-title,
 pre .hljs-css .hljs-rules .hljs-attribute {
-	color: #f0c674;
+    color: #f0c674;
 }
 
 .tomorrow-green,
@@ -278,12 +275,12 @@ pre .hljs-inheritance,
 pre .hljs-header,
 pre .hljs-ruby .hljs-symbol,
 pre .hljs-xml .hljs-cdata {
-	color: #b5bd68;
+    color: #b5bd68;
 }
 
 .tomorrow-aqua,
 pre .hljs-css .hljs-hexcolor {
-	color: #8abeb7;
+    color: #8abeb7;
 }
 
 .tomorrow-blue,
@@ -295,24 +292,23 @@ pre .hljs-ruby .hljs-title .hljs-keyword,
 pre .hljs-perl .hljs-sub,
 pre .hljs-javascript .hljs-title,
 pre .hljs-coffeescript .hljs-title {
-	color: #81a2be;
+    color: #81a2be;
 }
 
 .tomorrow-purple,
 pre .hljs-keyword,
 pre .hljs-javascript .hljs-function {
-	color: #b294bb;
+    color: #b294bb;
 }
 
 pre code {
-	display: block;
-	background: #1d1f21;
-	color: #c5c8c6;
-	font-family: Menlo, Monaco, Consolas, monospace;
-	line-height: 1.5;
-	border: 1px solid #ccc;
-	padding: 10px;
-	font-size: 14px;
+    display: block;
+    background: #1d1f21;
+    color: #c5c8c6;
+    font-family: Menlo, Monaco, Consolas, monospace;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 14px;
 }
-
 </style>
